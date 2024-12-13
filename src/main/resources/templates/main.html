@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Main</title>
+</head>
+<style>
+    #map-container {
+        display: grid;
+        grid-template-columns: repeat(10, auto);
+        grid-gap: 0;
+        width: 500px;
+        height: 500px;
+        position: relative;
+        margin: auto;
+        overflow: hidden;
+    }
+    #map-container img {
+        transform-origin: top left;
+        position: absolute;
+    }
+    #controls, #zoom-controls {
+        position: absolute;
+        display: flex;
+        gap: 5px;
+        padding: 5px;
+        margin: 0;
+        bottom: 10px;
+    }
+
+    #controls {
+        left: 50%;
+    }
+
+    #zoom-controls {
+        right: 10px;
+    }
+</style>
+
+<body>
+<h1>MAIN</h1>
+
+<div>
+    <p style="color: green;" th:if="${message}" th:text="${message}"></p>
+</div>
+
+<form action="/controller/uploadMapBatch" method="post" enctype="multipart/form-data">
+    <label for="mapZipFile">Upload Maps (ZIP):</label>
+    <input type="file" id="mapZipFile" name="mapZipFile" accept=".zip" required>
+    <button type="submit">Upload ZIP</button>
+    <button id="load-map-btn">Load Map</button>
+    <script>
+        document.getElementById("load-map-btn").addEventListener("click", function () {
+            fetch("/controller/getMap?x=0&y=0")
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Map tile not found");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    document.getElementById("map").src = `/maps/map_tile_data/tile_0_0.png`;
+                    document.getElementById("map2").src = `/maps/map_tile_data/tile_0_1.png`;
+                    document.getElementById("map3").src = `/maps/map_tile_data/tile_0_2.png`;
+                    document.getElementById("map4").src = `/maps/map_tile_data/tile_0_3.png`;
+                    document.getElementById("map5").src = `/maps/map_tile_data/tile_0_4.png`;
+                    document.getElementById("map6").src = `/maps/map_tile_data/tile_0_5.png`;
+                    document.getElementById("map7").src = `/maps/map_tile_data/tile_0_6.png`;
+                    document.getElementById("map8").src = `/maps/map_tile_data/tile_0_7.png`;
+                    document.getElementById("map9").src = `/maps/map_tile_data/tile_0_8.png`;
+                    document.getElementById("map10").src = `/maps/map_tile_data/tile_0_9.png`;
+                    document.getElementById("map11").src = `/maps/map_tile_data/tile_1_0.png`;
+                    document.getElementById("map12").src = `/maps/map_tile_data/tile_1_1.png`;
+                    document.getElementById("map13").src = `/maps/map_tile_data/tile_1_2.png`;
+                    document.getElementById("map14").src = `/maps/map_tile_data/tile_1_3.png`;
+                    document.getElementById("map15").src = `/maps/map_tile_data/tile_1_4.png`;
+                    document.getElementById("map16").src = `/maps/map_tile_data/tile_1_5.png`;
+                    document.getElementById("map17").src = `/maps/map_tile_data/tile_1_6.png`;
+                    document.getElementById("map18").src = `/maps/map_tile_data/tile_1_7.png`;
+                    document.getElementById("map19").src = `/maps/map_tile_data/tile_1_8.png`;
+                    document.getElementById("map20").src = `/maps/map_tile_data/tile_1_9.png`;
+                    document.getElementById("map21").src = `/maps/map_tile_data/tile_2_0.png`;
+                    document.getElementById("map22").src = `/maps/map_tile_data/tile_2_1.png`;
+                    document.getElementById("map23").src = `/maps/map_tile_data/tile_2_2.png`;
+                    document.getElementById("map24").src = `/maps/map_tile_data/tile_2_3.png`;
+                    document.getElementById("map25").src = `/maps/map_tile_data/tile_2_4.png`;
+                    document.getElementById("map26").src = `/maps/map_tile_data/tile_2_5.png`;
+                    document.getElementById("map27").src = `/maps/map_tile_data/tile_2_6.png`;
+                    document.getElementById("map28").src = `/maps/map_tile_data/tile_2_7.png`;
+                    document.getElementById("map29").src = `/maps/map_tile_data/tile_2_8.png`;
+                    document.getElementById("map30").src = `/maps/map_tile_data/tile_2_9.png`;
+                })
+                .catch(error => {
+                    console.error(error);
+                    alert("맵 이미지를 로드하지 못했습니다. 맵 이미지를 업로드해주세요.");
+                });
+        });
+    </script>
+</form>
+
+<div id="map-container">
+    <img id="map" src="" alt="지도 이미지1" />
+    <img id="map2" src="" alt="지도 이미지2" />
+    <img id="map3" src="" alt="지도 이미지3" />
+    <img id="map4" src="" alt="지도 이미지4" />
+    <img id="map5" src="" alt="지도 이미지5" />
+    <img id="map6" src="" alt="지도 이미지6" />
+    <img id="map7" src="" alt="지도 이미지7" />
+    <img id="map8" src="" alt="지도 이미지8" />
+    <img id="map9" src="" alt="지도 이미지9" />
+    <img id="map10" src="" alt="지도 이미지10" />
+    <img id="map11" src="" alt="지도 이미지11" />
+    <img id="map12" src="" alt="지도 이미지12" />
+    <img id="map13" src="" alt="지도 이미지13" />
+    <img id="map14" src="" alt="지도 이미지14" />
+    <img id="map15" src="" alt="지도 이미지15" />
+    <img id="map16" src="" alt="지도 이미지16" />
+    <img id="map17" src="" alt="지도 이미지17" />
+    <img id="map18" src="" alt="지도 이미지18" />
+    <img id="map19" src="" alt="지도 이미지19" />
+    <img id="map20" src="" alt="지도 이미지20" />
+    <img id="map21" src="" alt="지도 이미지21" />
+    <img id="map22" src="" alt="지도 이미지22" />
+    <img id="map23" src="" alt="지도 이미지23" />
+    <img id="map24" src="" alt="지도 이미지24" />
+    <img id="map25" src="" alt="지도 이미지25" />
+    <img id="map26" src="" alt="지도 이미지26" />
+    <img id="map27" src="" alt="지도 이미지27" />
+    <img id="map28" src="" alt="지도 이미지28" />
+    <img id="map29" src="" alt="지도 이미지29" />
+    <img id="map30" src="" alt="지도 이미지30" />
+</div>
+
+<div id="controls">
+    <button id="move-up">↑</button>
+    <button id="move-left">←</button>
+    <button id="move-right">→</button>
+    <button id="move-down">↓</button>
+</div>
+
+<script>
+    let x = 0, y = 0;
+
+    function updateMap() {
+        fetch(`/controller/getMap?x=${x}&y=${y}`)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("map").src = `/maps/map_tile_data/tile_${x}_${y}.png`;
+                document.getElementById("map2").src = `/maps/map_tile_data/tile_${x}_${y+1}.png`;
+                document.getElementById("map3").src = `/maps/map_tile_data/tile_${x}_${y+2}.png`;
+                document.getElementById("map4").src = `/maps/map_tile_data/tile_${x}_${y+3}.png`;
+                document.getElementById("map5").src = `/maps/map_tile_data/tile_${x}_${y+4}.png`;
+                document.getElementById("map6").src = `/maps/map_tile_data/tile_${x}_${y+5}.png`;
+                document.getElementById("map7").src = `/maps/map_tile_data/tile_${x}_${y+6}.png`;
+                document.getElementById("map8").src = `/maps/map_tile_data/tile_${x}_${y+7}.png`;
+                document.getElementById("map9").src = `/maps/map_tile_data/tile_${x}_${y+8}.png`;
+                document.getElementById("map10").src = `/maps/map_tile_data/tile_${x}_${y+9}.png`;
+                document.getElementById("map11").src = `/maps/map_tile_data/tile_${x+1}_${y}.png`;
+                document.getElementById("map12").src = `/maps/map_tile_data/tile_${x+1}_${y+1}.png`;
+                document.getElementById("map13").src = `/maps/map_tile_data/tile_${x+1}_${y+2}.png`;
+                document.getElementById("map14").src = `/maps/map_tile_data/tile_${x+1}_${y+3}.png`;
+                document.getElementById("map15").src = `/maps/map_tile_data/tile_${x+1}_${y+4}.png`;
+                document.getElementById("map16").src = `/maps/map_tile_data/tile_${x+1}_${y+5}.png`;
+                document.getElementById("map17").src = `/maps/map_tile_data/tile_${x+1}_${y+6}.png`;
+                document.getElementById("map18").src = `/maps/map_tile_data/tile_${x+1}_${y+7}.png`;
+                document.getElementById("map19").src = `/maps/map_tile_data/tile_${x+1}_${y+8}.png`;
+                document.getElementById("map20").src = `/maps/map_tile_data/tile_${x+1}_${y+9}.png`;
+                document.getElementById("map21").src = `/maps/map_tile_data/tile_${x+2}_${y}.png`;
+                document.getElementById("map22").src = `/maps/map_tile_data/tile_${x+2}_${y+1}.png`;
+                document.getElementById("map23").src = `/maps/map_tile_data/tile_${x+2}_${y+2}.png`;
+                document.getElementById("map24").src = `/maps/map_tile_data/tile_${x+2}_${y+3}.png`;
+                document.getElementById("map25").src = `/maps/map_tile_data/tile_${x+2}_${y+4}.png`;
+                document.getElementById("map26").src = `/maps/map_tile_data/tile_${x+2}_${y+5}.png`;
+                document.getElementById("map27").src = `/maps/map_tile_data/tile_${x+2}_${y+6}.png`;
+                document.getElementById("map28").src = `/maps/map_tile_data/tile_${x+2}_${y+7}.png`;
+                document.getElementById("map29").src = `/maps/map_tile_data/tile_${x+2}_${y+8}.png`;
+                document.getElementById("map30").src = `/maps/map_tile_data/tile_${x+2}_${y+9}.png`;
+            });
+    }
+
+    document.getElementById("move-up").addEventListener("click", function () { x--; updateMap(); });
+    document.getElementById("move-down").addEventListener("click", function () { x++; updateMap(); });
+    document.getElementById("move-left").addEventListener("click", function () { y--; updateMap(); });
+    document.getElementById("move-right").addEventListener("click", function () { y++; updateMap(); });
+</script>
+
+<div id="zoom-controls">
+    <button id="zoom-in">Zoom In</button>
+    <button id="zoom-out">Zoom Out</button>
+    <a href="/controller/logout">Log Out</a>
+</div>
+
+<script>
+    let scale = 1;
+    const tileSize = 50;
+
+    function updateTilePositions() {
+        const tiles = document.querySelectorAll("#map-container img");
+        tiles.forEach((tile, index) => {
+            const row = Math.floor(index / 10);
+            const col = index % 10;
+            const size = tileSize * scale;
+            tile.style.width = `${size}px`;
+            tile.style.height = `${size}px`;
+            tile.style.left = `${col * size}px`;
+            tile.style.top = `${row * size}px`;
+        });
+    }
+
+    document.getElementById("zoom-in").addEventListener("click", function () {
+        scale += 0.1;
+        updateTilePositions();
+    });
+
+    document.getElementById("zoom-out").addEventListener("click", function () {
+        if (scale > 0.1) scale -= 0.1;
+        updateTilePositions();
+    });
+    updateTilePositions();
+</script>
+</body>
+</html>
